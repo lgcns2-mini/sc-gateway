@@ -13,4 +13,9 @@ spring:
           predicates:
             - Path=/hello # 매칭할 경로 (정확히 /hello)
 
-
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://localhost:8765/eureka/
