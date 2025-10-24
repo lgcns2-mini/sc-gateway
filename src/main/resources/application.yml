@@ -8,6 +8,21 @@ spring:
   cloud:
     gateway:
       routes:
+        - id: blog-service
+          uri: lb://inspire_blog
+          predicates:
+            - Path=/api/v1/boards/**,/api/v1/comments/**,/api/v1/users/**,/api/v1/todos/**,/api/v1/rank/**,/api/v1/mypage/**
+
+        - id: summary-service
+          uri: lb://inspire3_summary
+          predicates:
+            - Path=/api/v1/summary
+
+        - id: fortune-service
+          uri: lb://inspire3_fortune
+          predicates:
+            - Path=/api/v1/fortune
+
         - id: hello_route # 새로 추가할 라우트의 ID
           uri: http://localhost:8761 # 타겟 서비스의 URI
           predicates:
@@ -19,3 +34,4 @@ eureka:
     fetch-registry: true
     service-url:
       defaultZone: http://localhost:8761/eureka/
+
