@@ -9,17 +9,17 @@ spring:
     gateway:
       routes:
         - id: blog-service
-          uri: lb://inspire_blog
+          uri: lb://inspire3-blog
           predicates:
             - Path=/api/v1/boards/**,/api/v1/comments/**,/api/v1/users/**,/api/v1/todos/**,/api/v1/rank/**,/api/v1/mypage/**
 
         - id: summary-service
-          uri: lb://inspire3_summary
+          uri: lb://inspire3-summary
           predicates:
             - Path=/api/v1/summary
 
         - id: fortune-service
-          uri: lb://inspire3_fortune
+          uri: lb://inspire3-fortune
           predicates:
             - Path=/api/v1/fortune
 
